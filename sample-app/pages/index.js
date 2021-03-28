@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { Headline } from "../components/Headline"
-import { Links } from '../components/Links';
+import { MainDocument } from "../components/MainDocument"
 import { Footer } from "../components/Footer";
 import styles from '../styles/Home.module.css'
 
@@ -12,20 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Headline
-          title="Index Page"
-          page="index"
-          arr={["hi", "mike"]}
-          obj={{foo: "hello", bar: "mami"}}
-          comp={<code className={styles.code}>pages/index.js</code>}
-          onClick={ () => alert("クリック") }
-        />
-        <Links />
-      </main>
+      <MainDocument page="index" title="index" />
 
       <Footer />
-
     </div>
   )
 }
