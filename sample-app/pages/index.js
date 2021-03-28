@@ -13,7 +13,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline title="Index Page" page="index"/>
+        <Headline
+          title="Index Page"
+          page="index"
+          arr={["hi", "mike"]}
+          obj={{foo: "hello", bar: "mami"}}
+          comp={<code className={styles.code}>pages/index.js</code>}
+          onClick={ () => alert("クリック") }
+        />
         <Links />
       </main>
 

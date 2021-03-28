@@ -13,7 +13,17 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline title="About Page" page="about"/>
+        <Headline
+          title="About Page"
+          page="about"
+          number={ 1 }
+          arr={["hi", "mike"]}
+          obj={{foo: "hello", bar: "mami"}}
+          // 真偽値を渡すときはプロパティ名を記述するだけでdefaultでtruetyを渡してくれる
+          boolean
+          //componentを渡す
+          comp={<code className={styles.code}>pages/about.js</code>}
+        />
         <Links />
       </main>
 
