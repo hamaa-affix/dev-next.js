@@ -1,6 +1,6 @@
 import Head from 'next/head'
+import { MainDocument } from '../components/MainDocument';
 import { Footer } from "../components/Footer";
-import { Links } from '../components/Links';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -10,20 +10,7 @@ export default function Home() {
         <title>about page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          About page
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <Links />
-      </main>
-
+      <MainDocument page="about" title="about" />
       <Footer />
     </div>
   )
