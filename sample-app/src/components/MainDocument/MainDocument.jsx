@@ -1,7 +1,7 @@
-import { Headline } from "./Headline"
-import { Links } from './Links';
-import styles from '../styles/Main.module.css'
-import { Demo } from "./demo";
+import { Headline } from "../HeadIine"
+import { Links } from '../Links/index';
+import styles from './Main.module.css'
+import { Demo } from "../demo";
 
 export function MainDocument(props) {
   return (
