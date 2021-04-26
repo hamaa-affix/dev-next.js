@@ -1,20 +1,10 @@
-import { useEffect } from "react";
 import { Headline } from "../HeadIine";
 import { Links } from '../Links/index';
 import styles from './Main.module.css';
 import { Demo } from "../demo";
 
 export function MainDocument(props) {
-  useEffect(() => {
-    //DOM要素に直接アクセスするのは避けるべきである。今回は学習の為例外
-    //マウント時の処理
-    document.body.style.backgroundColor = "lightblue";
 
-    //アンマウント時の処理
-    return () => {
-      document.body.style.backgroundColor = "";
-    }
-  }, []);
   return (
       <main className={styles.main}>
         {/* childrenで渡している */}

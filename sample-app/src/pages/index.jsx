@@ -7,13 +7,23 @@ import { Header } from 'src/components/Header/index';
 
 
 export default function Home() {
-  //useCallback ->　再レンダリングする際に再生成することがなくなる。コンポーネントのパフォーマンスを維持してくれる。
-  // const handleClick = useCallback((e) => {
-  //   console.log(e);
-  //   e.preventDefault();
-  //   alert(1234);
-  // }, []);
-  
+  // useCallback ->　再レンダリングする際に再生成することがなくなる。コンポーネントのパフォーマンスを維持してくれる。
+  const handleClick = useCallback((e) => {
+    console.log(e);
+    e.preventDefault();
+    alert(1234);
+  }, []);
+
+  useEffect(() => {
+    //DOM要素に直接アクセスするのは避けるべきである。今回は学習の為例外
+    //マウント時の処理
+    document.body.style.backgroundColor = "lightblue";
+
+    //アンマウント時の処理
+    return () => {
+      document.body.style.backgroundColor = "";
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
