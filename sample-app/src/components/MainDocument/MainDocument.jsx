@@ -1,9 +1,10 @@
-import { Headline } from "../HeadIine"
+import { Headline } from "../HeadIine";
 import { Links } from '../Links/index';
-import styles from './Main.module.css'
+import styles from './Main.module.css';
 import { Demo } from "../demo";
 
 export function MainDocument(props) {
+
   return (
       <main className={styles.main}>
         {/* childrenで渡している */}
