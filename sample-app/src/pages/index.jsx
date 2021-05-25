@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Head from 'next/head'
 import { MainDocument } from "../components/MainDocument/MainDocument"
 import { Footer } from "../components/Footer/index";
@@ -8,12 +8,15 @@ import { Header } from 'src/components/Header/index';
 
 export default function Home() {
   // useCallback ->　再レンダリングする際に再生成することがなくなる。コンポーネントのパフォーマンスを維持してくれる。
-  const handleClick = useCallback((e) => {
-    console.log(e);
-    e.preventDefault();
-    alert(1234);
-  }, []);
-
+  // const handleClick = useCallback((e) => {
+  //   console.log(e);
+  //   e.preventDefault();
+  //   alert(1234);
+  // }, []);
+  const handlClick = (e) => {
+    setFoo(foo => foo +1);
+  }
+  const [ foo, setFoo ] = useState(1)
   useEffect(() => {
     //DOM要素に直接アクセスするのは避けるべきである。今回は学習の為例外
     //マウント時の処理
@@ -34,6 +37,10 @@ export default function Home() {
       {/* <button onClick={handleClick}>ボタン</button> */}
       <Header />
       <MainDocument page="index" title="index" />
+      <h1>{ foo }</h1>
+      <button onClick={ handlClick } >
+        ボタン
+      </button>
       <Footer />
     </div>
   )
