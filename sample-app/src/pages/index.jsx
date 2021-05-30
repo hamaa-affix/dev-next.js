@@ -1,54 +1,17 @@
-import { useCallback, useEffect, useState } from "react";
 import Head from 'next/head'
 import { MainDocument } from "../components/MainDocument/MainDocument"
 import { Footer } from "../components/Footer/index";
 import styles from '../styles/Home.module.css'
 import { Header } from 'src/components/Header/index';
-
+//custom Hooks
+import { useCounter} from "../hooks/useCounter";
+import { useInputArray } from "../hooks/useInputArray";
+import { useBgLightBlue } from "../hooks/useBgLightBlue";
 
 export default function Home() {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState("")
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState([]);
-  // useCallback ->　再レンダリングする際に再生成することがなくなる。コンポーネントのパフォーマンスを維持してくれる。
-  const handlClick = useCallback((e) => {
-    setCount(prevCount => prevCount +1);
-  }, [count]);
-
-  const handlChange = useCallback((e) => {
-    if (e.target.value.length > 5) {
-      alert("5文字以内にしてください");
-      return;
-    }
-    setText(e.target.value.trim());
-  }, []);
-
-  const handlDisplay = useCallback(() => {
-    setIsShow(prevIsShow => !prevIsShow);
-  }, []);
-
-  const handlAdd = useCallback(() => {
-    setArray( (prevArray) => {
-      if (prevArray.some( item => item === text )) {
-        alert("同じ要素のものがあります");
-        return prevArray;
-      }
-      const newArray = [...prevArray, text]
-      return newArray;
-    })
-  }, [text]);
-
-  useEffect(() => {
-    //DOM要素に直接アクセスするのは避けるべきである。今回は学習の為例外
-    //マウント時の処理
-    document.body.style.backgroundColor = "lightblue";
-
-    //アンマウント時の処理
-    return () => {
-      document.body.style.backgroundColor = "";
-    }
-  }, []);
+  const { count, isShow, handlClick, handlDisplay } = useCounter();
+  const { text, array, handlChange, handlAdd } = useInputArray();
+  useBgLightBlue();
 
   return (
     <div className={styles.container}>
