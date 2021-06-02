@@ -1,7 +1,15 @@
 import '../styles/globals.css'
+//custom Hooks
+import { useCounter} from "../hooks/useCounter";
+import { useInputArray } from "../hooks/useInputArray";
+import { useBgLightBlue } from "../hooks/useBgLightBlue";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const counter = useCounter();
+  const inputArray = useInputArray();
+  useBgLightBlue();
+
+  return <Component {...pageProps} {...counter} {...inputArray} />
 }
 
 export default MyApp
